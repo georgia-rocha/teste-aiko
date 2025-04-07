@@ -21,12 +21,14 @@ export interface EquipmentPositionHistory {
   positions: Position[];
 }
 
+export interface EquipmentStateRecord {
+  date: string;
+  equipmentStateId: string;
+}
+
 export interface EquipmentStateHistory {
   equipmentId: string;
-  states: {
-    date: string;
-    equipmentStateId: string;
-  }[];
+  states: EquipmentStateRecord[];
 }
 
 export interface HourlyEarning {
@@ -40,41 +42,35 @@ export interface EquipmentModel {
   hourlyEarnings: HourlyEarning[];
 }
 
-export interface EquipmentStateRecord {
+export interface EnrichedEquipmentState {
   date: string;
   equipmentStateId: string;
+  lat: number;
+  lon: number;
+  name: string;
+  color: string;
 }
 
 export interface EquipmentDetail {
   id: string;
   name: string;
-  model: {
-    id: string;
-    name: string;
-    hourlyEarnings: {
-      equipmentStateId: string;
-      value: number;
-    }[];
-  };
-  positions: {
-    date: string;
-    lat: number;
-    lon: number;
-  }[];
-  currentPosition: {
-    date: string;
-    lat: number;
-    lon: number;
-  };
-  currentState: {
-    id: string;
-    name: string;
-    color: string;
-  };
-  stateHistory: {
-    date: string;
-    equipmentStateId: string;
-  }[];
-  productivity: number; 
+  model: EquipmentModel;
+  positions: Position[];
+  currentPosition: Position;
+  currentState: EquipmentState;
+  stateHistory: EnrichedEquipmentState[];
+  productivity: number;
   earnings: number;
+}
+
+export enum EquipmentStateEnum {
+  FUNCIONANDO = 'Operando',
+  MANUTENCAO = 'Manutenção',
+  INATIVO = 'Parado',
+}
+
+export enum EquipmentModelEnum {
+  CAMINHAO_CARGA = 'Caminhão de carga',
+  GARRA_TRACADORA = 'Garra traçadora',
+  HARVESTER = 'Harvester',  
 }

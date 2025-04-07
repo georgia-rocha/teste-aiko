@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 const loadGoogleMapsScript = (apiKey: string) => {
   const existingScript = document.getElementById('googleMaps');
 

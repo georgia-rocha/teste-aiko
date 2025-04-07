@@ -1,4 +1,3 @@
-// components/EquipmentCard.tsx
 import { Card, CardContent, Avatar, Typography } from '@mui/material';
 import { EquipmentDetail } from '../types/equipment';
 import { getStatusIcon } from '../utils/statusIcon';
@@ -7,7 +6,7 @@ type EquipmentCardProps = {
   equipment: EquipmentDetail;
 };
 
-const EquipmentCard = ({ equipment }: EquipmentCardProps) => {
+const EquipmentCard = ({ equipment }: EquipmentCardProps) => {  
   return (
     <Card
       variant="outlined"
@@ -38,6 +37,12 @@ const EquipmentCard = ({ equipment }: EquipmentCardProps) => {
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Estado atual: {equipment.currentState.name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Produtividade: {equipment.productivity}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Ganho por equipamento: {equipment.earnings}
         </Typography>
       </CardContent>
     </Card>

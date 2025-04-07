@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import loadGoogleMapsScript from './LoadGoogleMapsScript';  
+import loadGoogleMapsScript from '../utils/loadGoogleMapsScript';  
 import { EquipmentDetail } from '@/types/equipment';
 import EquipmentHistory from './EquipmentHistory';
 import { Box } from '@mui/material';

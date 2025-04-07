@@ -24,9 +24,7 @@ const getModelIcon = (modelName: string) => {
   }
 };
 
-const EquipmentHistory = ({ equipment, onClose }: EquipmentHistoryProps) => {
-  console.log(equipment);
-  
+const EquipmentHistory = ({ equipment, onClose }: EquipmentHistoryProps) => {  
   return (
     <Paper elevation={3} sx={{ p: 2, borderRadius: 2, height: '100%', overflowY: 'auto' }}>
       <Box sx={{ position: 'relative', textAlign: 'center', mb: 2 }}>

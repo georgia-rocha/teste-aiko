@@ -1,18 +1,21 @@
-import logo from './assets/img/aiko.png'
-import './App.css'
-import Dashboard from './pages/Dashboard'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import NotFound from './pages/NotFound';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import './index.css';
 
-function App() {
-
+const App = () => {
   return (
-    <>
-      <div>
-         <img src={logo} className="logo" alt="Vite logo" />
-      </div>
-      <h1>Hello Word teste</h1>
-      <Dashboard />
-    </>
-  )
-}
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
+    </Router>
+  );
+};
 
-export default App
+export default App;
